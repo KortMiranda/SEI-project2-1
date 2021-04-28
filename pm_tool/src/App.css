@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+:root{
+  --main-bg-color: rgb(240, 245, 251);
+  --main-border-color: rgb(235,235,235);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*{
+  margin:0;
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: 1.4rem;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+  background-color: var(--main-bg-color);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.header{
+  height: 4rem;
+  background-color: black;
+  width : 100vw;
+  display:flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.logoAndSearchBar{
+  display: flex;
+  flex-direction: row;
+  height:70%;
+}
+#searchBar{
+  height:100%;
+  border:0;
+  border-radius: 8px;
+  width:40rem;
+  padding-left:1rem;
+}
+.cardHeader{
+  height: 3rem;
+  border-bottom: 2px solid var(--main-border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 1rem;
+}
+.cardFooter{
+  height: 3rem;
 }
 
-.App-link {
-  color: #61dafb;
+.dashBoardCard{
+  background-color: white;
+  height:fit-content;
+  display: grid;
+  border-radius: 4px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dashBoardGrid{
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(6,1fr);
+  grid-gap: 1rem;
+  width: 85vw;
+  margin: 3rem auto;
 }
+.col-1{
+  grid-column: auto / span 1;
+}
+
+.col-2{
+  grid-column: auto / span 2;
+}
+.col-3{
+  grid-column: auto / span 3;
+}
+.col-4{
+  grid-column: auto / span 4;
+}
+.col-5{
+  grid-column: auto / span 5;
+}
+.col-6{
+  grid-column: auto / span 6;
+}
+.newsItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  height: 10rem;
+  border-bottom: 2px solid rgb(240,240,240);
+}
+.newsHeadLine{
+}
+.companyInfo{
+  padding:1rem;
+}
+.companyInfoDescription{
+  overflow : hidden;
+  position: relative;
+  height: 5.6em; /* exactly three lines */
+}
+
+.companyInfoDescription:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 1.4em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+.canvasjs-chart-credit{
+  display: none;
+}
+/* .testBox{
+  width: 500px;
+  margin-left: -50px;
+  clip: rect(0px, 20px, 30px, 40px);
+} */
