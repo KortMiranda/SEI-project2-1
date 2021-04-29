@@ -4,6 +4,8 @@ import CardFooter from './CardFooter'
 import News from './CardBody/News'
 import CompanyInfo from './CardBody/CompanyInfo'
 import Stock from './CardBody/Stock'
+import Keywords from './CardBody/Keywords'
+import Competitors from './CardBody/Competitors'
 
 function DashBoardCard(props) {
     let [contentPerPage, setContentPerPage] = useState(0);
@@ -23,8 +25,14 @@ function DashBoardCard(props) {
             <div className='cardBody'>
                 {/* <EComerce></EComerce> */}
                 <News contentPerPage={contentPerPage} page={page} newsData={props.newsData}></News>
+
                 {(props.cardType==='companyInfo')?<CompanyInfo nameToDomainData={props.nameToDomainData} stockData={props.stockData} />:null}
+
                 {(props.cardType==='stock')?<Stock stockData={props.stockData} stockPriceDailyData={props.stockPriceDailyData} />:null}
+
+                {(props.cardType==='userKeywords')?<Keywords relatedKeywords={props.relatedKeywords} />:null}
+
+                {(props.cardType==='competitors')?<Competitors competitors={props.competitors} />:null}
             </div>
             {(props.cardType==='companyInfo')?null:<CardFooter page={page} setPage={setPage} totalPage={totalPage}></CardFooter>}
         </div>

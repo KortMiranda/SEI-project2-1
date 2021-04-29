@@ -8,8 +8,14 @@ function DashBoard(props) {
     let [newsData, setNewsData] = useState({})
     let [stockData, setStockData] = useState({})
     let [stockPriceDailyData, setStockPriceDailyData] = useState({})
+    let [bingData, setBingData] = useState({})
+    let [competitors, setCompetitors] = useState({})
 
     useEffect(()=>{
+        axios.get('/competitors')
+        .then(res=>res.data)
+        .then(data=>data.suggestionGroups[0].searchSuggestions)
+        .then(searchSuggestions=>setCompetitors(searchSuggestions))
         axios.get('/nameToDomain')
         .then(res=>setNameToDomain(res.data))
         axios.get('/stock')
@@ -20,10 +26,14 @@ function DashBoard(props) {
         .then(res=>res.data)
         .then(data=>data.response)
         .then(dataResponse=>setNewsData(dataResponse.docs))
+        axios.get('/searchKeywords')
+        .then(res=>setBingData(res.data))
     },[])
 
     return (
         <div className='dashBoardGrid'>
+            {/* {console.log(bingData)} */}
+            {/* {console.log(competitors)} */}
             <div className='col-2'>
                 <DashBoardCard cardType={'companyInfo'} nameToDomainData={nameToDomainData} stockData={stockData}></DashBoardCard>
             </div>
@@ -31,10 +41,10 @@ function DashBoard(props) {
                 <DashBoardCard cardType={'stock'} stockData={stockData} stockPriceDailyData={stockPriceDailyData}/>
             </div>
             <div className='col-1'>
-                <DashBoardCard/>
+                <DashBoardCard cardType={'userKeywords'} relatedKeywords={bingData.relatedSearches}/>
             </div>
             <div className='col-1'>
-                <DashBoardCard/>
+                <DashBoardCard cardType={'competitors'} competitors={competitors}/>
             </div>
             <div className='col-3'>
                 <DashBoardCard cardType={'news'} newsData={newsData}></DashBoardCard>

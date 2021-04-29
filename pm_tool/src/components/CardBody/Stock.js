@@ -4,7 +4,7 @@ function Stock({stockData, stockPriceDailyData}) {
 
     return (
         <div className="stockGraph">
-            {console.log(stockData)}
+            {/* {console.log(stockData)} */}
             <span>{stockData['Symbol']}</span>
             <h1>{stockData['Name']}</h1>
            <StockGraph stockPriceDailyData={stockPriceDailyData}></StockGraph>
