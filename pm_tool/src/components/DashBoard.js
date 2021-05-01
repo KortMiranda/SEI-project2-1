@@ -4,14 +4,19 @@ import axios from 'axios'
 
  
 function DashBoard(props) {
-    let [nameToDomainData, setNameToDomain] = useState({})
-    let [newsData, setNewsData] = useState({})
-    let [stockData, setStockData] = useState({})
-    let [stockPriceDailyData, setStockPriceDailyData] = useState({})
-    let [bingData, setBingData] = useState({})
-    let [competitors, setCompetitors] = useState({})
+    const [nameToDomainData, setNameToDomain] = useState({})
+    const [newsData, setNewsData] = useState({})
+    const [stockData, setStockData] = useState({})
+    const [stockPriceDailyData, setStockPriceDailyData] = useState({})
+    const [bingData, setBingData] = useState({})
+    const [competitors, setCompetitors] = useState({})
+    const [tweets, setTweets] = useState({})
+    
 
     useEffect(()=>{
+        axios.get('/tweets')
+        .then(res=>res.data)
+        .then(data=>setTweets(data))
         axios.get('/competitors')
         .then(res=>res.data)
         .then(data=>data.suggestionGroups[0].searchSuggestions)
@@ -48,6 +53,9 @@ function DashBoard(props) {
             </div>
             <div className='col-3'>
                 <DashBoardCard cardType={'news'} newsData={newsData}></DashBoardCard>
+            </div>
+            <div className='col-3'>
+                <DashBoardCard cardType={'tweets'} tweets={tweets}></DashBoardCard>
             </div>
 
         </div>
