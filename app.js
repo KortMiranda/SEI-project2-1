@@ -1,7 +1,7 @@
 //import necessary stuffs//
 const express = require('express')
+const PORT = process.env.PORT || '5000'
 const app = express()
-const port = 5000
 const axios = require('axios')
 var clearbit = require('clearbit')('sk_aff75403c45c91bfebca0aa249420861')
 const https = require('https')
@@ -225,7 +225,7 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-
-app.listen(port, () => {
+app.set("port",PORT)
+app.listen(PORT, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
