@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root{
+  --main-bg-color: rgb(248, 249, 250);
+  --main-border-color: rgb(240, 240, 240);
+  --subtitle-color:rgba(0,0,0,0.3);
+  --primary-color:#0066cc;
+  --sub-color:rgb(242,154,54);
+  --header-color:rgb(26, 26, 31);
+  --shadow:rgba(0,0,0,0.1);
+  --body-text:rgb(100, 100, 100);
+  --header-text:rgb(0,0,0);
+}
+*{
+  margin:0;
+  box-sizing: border-box;
+  font-size: 18px;
+  line-height: 1.4rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight:400;
+  color:var(--body-text);
+}
+body{
+  background-color: var(--main-bg-color);
+}
+.header{
+  height: 4rem;
+  background-color: var(--header-color);
+  width : 100vw;
+  padding: 0 2vw 0 2vw;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logoAndSearchBar{
+  display: flex;
+  flex-direction: row;
+  height:70%;
+}
+#searchBar{
+  height:100%;
+  border:0;
+  border-radius: 8px;
+  width:40rem;
+  padding-left:1rem;
+  position: relative;
+  z-index: 2;
+}
+@media only screen and (max-width: 1000px) {
+  .searchBarContainer{
+    width:80vw;
+  }
+  #searchBar{
+    width:90%;
+  }
+}
+.cardHeader{
+  height: 2.5rem;
+  border-bottom: 1px solid var(--main-border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:0 1rem;
+  font-size: 0.8rem;
+}
+.cardFooter{
+  height: 2.3rem;
+  font-size: 0.8rem;
+  border-top: 1px solid var(--main-border-color);
+  color: var(--primary-color);
+  align-self: flex-end;
+}
+.dashBoardCardPlain{
+  background-color: white;
+  height:100%;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 5px var(--shadow);
+}
+.dashBoardCard{
+  background-color: white;
+  display: grid;
+  height:100%;
+  grid-template-rows: 2.5rem auto 2.3rem;
+  border-radius: 0.5rem;
+  box-shadow: 2px 2px 5px var(--shadow);
+}
+
+.dashBoardGrid{
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(6,1fr);
+  grid-gap: 1rem;
+  width: 85vw;
+  margin: 3rem auto;
+}
+.col-1{
+  grid-column: auto / span 1;
+}
+
+.col-2{
+  grid-column: auto / span 2;
+}
+.col-3{
+  grid-column: auto / span 3;
+}
+@media only screen and (max-width: 1000px) {
+  .col-3{
+    grid-column: auto / span 6;
+  }
+}
+.col-4{
+  grid-column: auto / span 4;
+}
+.col-5{
+  grid-column: auto / span 5;
+}
+.col-6{
+  grid-column: auto / span 6;
+}
+.newsItem{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:auto 0;
+
+}
+.newsBody{
+  height: 4.2rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.cardBodyItem{
+  align-self: center;
+}
+
+/* .cardBody div:first-of-type .newsItem{
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--main-border-color);
+} */
+
+.cardBody div:nth-child(2) .newsItem{
+  padding-top: 1rem;
+
+}
+
+.companyInfoDescription{
+  overflow : hidden;
+  position: relative;
+  height: 5.6em; 
+  margin-bottom: 1.5rem;
+}
+
+.companyInfoDescription:after {
+  content: "";
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80%;
+  height: 1.4em;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 50%);
+}
+.canvasjs-chart-credit{
+  display: none;
+}
+/* .testBox{
+  width: 500px;
+  margin-left: -50px;
+  clip: rect(0px, 20px, 30px, 40px);
+} */
+
+.tweet{
+  padding:1rem 0;
+}
+
+.flag-icon{
+  background-size: contain;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+.flag-icon-background{
+  background-size: contain;
+background-position: 50%;
+background-repeat: no-repeat;
+}
+.suggestionBox{
+  position: relative;
+  z-index: 1;
+  background-color: white;
+  margin-top: -0.5rem;
+  padding: 1rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  display: none;
+}
+.suggestionBox :last-child{
+  border:0;
+}
+.suggestionItem{
+  border-bottom: 1px solid var(--main-border-color);
+  padding: 0.8rem 0rem;
+  font-weight: bold;
+}
+.suggestionItem .companyName {
+  font-size: 1rem;
+  padding-right: 0.5rem;
+}
+
+.suggestionItem .symbol {
+  color: var(--subtitle-color);
+  font-size: 0.7rem;
+  color:var(--primary-color);
+}
+
+.suggestionItem .region {
+  font-size: 0.8rem;
+  color: var(--subtitle-color);
+  font-weight:normal;
+}
+
+.cardBody{
+  position: relative;
+  align-self: flex-start;
+  padding: 1rem;
+  height: 100%;
+  display: grid;
+
+}
+
+.userKeyword{
+  font-weight:600;
+  margin-bottom: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+}
+.userKeyword h1{
+  color:var(--primary-color);
+}
+.competitorKeywords{
+  color:var(--sub-color);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.cardHeader h5 {
+  color: var(--gray-text);
+  text-transform: uppercase;
+}
+.cardFooter button {
+  display: flex;
+  align-items: center;
+  margin-top: -1px;
+  padding: 0 0.5rem;
+  opacity: 0.7;
+}
+.cardFooter p {
+  font-size: 0.8rem;
+  color:var(--primary-color);
+}
+
+.companyInfo img{
+  border-radius: 0.4rem;
+}
+
+.companyInfo h1 {
+  font-size: 2.25rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: var(--header-text);
+  line-height: 3rem;
+}
+
+.companyInfoText p {
+  width:fit-content;
+  color: var(--body-text);
+}
+.seeAll{
+  color:var(--primary-color);
+  font-size: 0.8rem;
+}
+.newsHeadLine{
+  font-size: 1.25rem;
+  line-height: 1.25em;
+  font-weight: 500;
+}
+.tweetHeader{
+  display: flex;
+  justify-content: space-between;
+}
+
+.tweetHeader span{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tweetBody p {
+  font-size: 1.25rem;
+  line-height: 180%;
+  font-weight: 500;
+
+}
+.tweetBody p span{
+  font-size: 1.25rem;
+  line-height: 180%;
+  font-weight: 500;
+}
+.tweetBody p:hover{
+  color:var(--primary-color);
+}
+.tweetBody p span:hover{
+  color:var(--primary-color);
+}
+.tweetHeader span h3{
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.emotionTag {
+  width:20px;
+  height:20px;
+  background-color: lightslategray;
+  margin-right:0.25rem;
+  border-radius: 100px;
+}
+
+.emotionLabel{
+  font-size: 0.8rem;
+}
+
+.translation{
+  background-color: var(--header-color);
+  color:white;
+  padding: 1rem;
+  width:fit-content;
+  display: none;
+}
+#sentenceEmotion{
+  position: absolute;
+  background-color: var(--header-color);
+  color:white;
+  padding:1rem;
+  z-index: 10;
+  border-radius: 1rem;
+  display: none;
+  max-width: 200px;
+}
+
+.stockSymbol{
+  margin-top:1rem;
+  margin-bottom:0.5rem;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+button:focus{
+  outline: 0;
+}
