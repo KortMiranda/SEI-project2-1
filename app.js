@@ -217,7 +217,7 @@ app.get('/translate', (req, res) => {
 
 const path = require('path');
 if (process.env.NODE_ENV === 'production') {
-  // Serve any static files
+  /// Serve any static files
   app.use(express.static(path.join(__dirname, 'client/build')));
 // Handle React routing, return all requests to React app
   app.get('*', function(req, res) {
